@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+	<legend>CashTracker</legend>
+
+  <div>
+      {% if request.user.is_authenticated %}
+          <h2 class="margin-base-vertical">Welcome, {{request.user}}!</h2>
+          <!-- Navigation Buttons -->
+      {% endif %}
+  </div>
+
+{% endblock %}

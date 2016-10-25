@@ -1,0 +1,433 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+
+  /* Background */
+  background: url(../../images/backgrounds/background1.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  overflow: auto;
+}
+
+body {
+  font-size: 16px;
+  background: transparent; /* To allow background image to show */
+  padding-top: 70px;
+
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #222;
+}
+
+#topnavbar {
+  margin-bottom: 0;
+}
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+h1 {
+  font-family: "Abel", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 40px;
+}
+
+h2 {
+  font-family: "Abel", Arial, sans-serif;
+  font-weight: bold;
+  font-size: 28px;
+}
+
+li {
+  padding: 3px;
+}
+.li-no-style > ul li {
+  list-style: none;
+}
+
+.left-padding { padding-left: 30px; }
+.bottom-padding { padding-bottom: 20px; }
+.right-padding { padding-right: 30px; }
+.top-padding { padding-bottom: 20px; }
+
+.margin-base-vertical {
+  margin: 20px 0;
+}
+
+.float-left {
+  float: left;
+}
+.float-right {
+  float: right;
+}
+
+.text-align-left {
+  text-align: left;
+}
+
+.center-block {
+  float: none !important
+}
+
+.full-width {
+  width: 100%;
+}
+
+.smaller-font-size { font-size: 12px; }
+.default-font-size { font-size: 13px; }
+.larger-font-size { font-size: 16px; }
+.font-size-14 { font-size: 14.5px; }
+.bold { font-weight: bold; }
+.italics { font-style: italic; }
+.underline { text-decoration: underline; }
+
+.red { color: red; }
+.green { color: green; }
+.blue { color: blue; }
+.gray { color: gray; }
+
+
+form.login div#div_id_login label,
+form.login div#div_id_password label,
+form.signup div:not(#div_id_profile_user_type) label {
+  display: none;
+}
+
+/*** DROP DOWN MENU STYLING EXTENSIONS ***/
+a.anchor {
+  display: block;
+  position: relative;
+  top: -50px;
+  visibility: hidden;
+}
+
+@media only screen and (min-width: 768px) {
+  ul.nav li.dropdown:hover > ul.dropdown-menu {
+    display: block;
+  }
+}
+
+/*** GLYPHICONS STYLING ***/
+.gi-2x{ font-size: 2em; }
+.gi-3x{ font-size: 3em; }
+.gi-4x{ font-size: 4em; }
+.gi-5x{ font-size: 5em; }
+.glyphicon { top: 0.1em; }
+
+
+
+/*** GENERAL PANEL STYLING ***/
+.panel {
+  background-color: rgba(255, 255, 255, 0.9); /* Override B3 .panel adding a subtly transparent background */
+  overflow: hidden;
+}
+
+legend {
+  padding: 20px 0px 20px 0px;
+}
+
+input, .input-lg {
+  width: 100%;
+}
+.input-lg {
+  font-size: 13px;
+}
+input[type="text"], input[type="password"], input[type="number"], .input-lg {
+  border-radius: 3px;
+  margin: 0;
+  padding: 6px;
+  border: 1px solid #CCC;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  -moz-box-shadow: 0 2px 2px white, inset 0 1px 3px #EEE;
+  -webkit-box-shadow: 0 2px 2px white, inset 0 1px 3px #EEE;
+  box-shadow: 0 2px 2px white, inset 0 1px 3px #EEE;
+}
+input[type="text"], input[type="password"], input[type="number"] {
+  height: 30px;
+  font-size: 14px;
+}
+
+button {
+  margin-right: 0px;
+}
+
+@media (max-width: 768px) {
+  .btn-responsive {
+    padding: 4px 8px;
+    font-size: 70%;
+    line-height: 1.1;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+  .btn-responsive {
+    padding: 4px 9px;
+    font-size: 90%;
+    line-height: 1.2;
+  }
+}
+
+/*** ACCOUNT, gig HISTORY, gig LIST, & gig DESCRIPTION TABLES ***/
+.custom-table {
+  border-collapse: collapse;
+  font-size: 13px;
+  margin: 10px 0;
+  width: 100%;
+}
+.custom-table th {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  background-color: #d9e5f2;
+  color: #4d4d4d;
+  text-align: center;
+  font-size: 16px;
+}
+.custom-table thead {
+  border: 1px solid #ddd;
+}
+.custom-table td {
+  border: 1px solid #ddd;
+  text-align: left;
+  padding: 0px;
+}
+.custom-table tr:nth-child(even){
+  background-color: #f2f2f2;
+}
+.custom-table tr:nth-child(odd){
+  background-color: #fbfbfb;
+}
+.custom-table tr:hover {
+  background-color: #ddd;
+}
+.custom-table td.table-bid-cell, td.table-hire-cell, td.manage-cell {
+  text-align: center;
+}
+.custom-table td.collapsable {
+  display:none;
+}
+.custom-table td.fixed-width {
+  width: 25%;
+}
+.custom-table td.gig-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  max-width: 200px;
+}
+@media only screen and (min-width: 768px) {
+  .custom-table td.collapsable {
+    display:table-cell;
+  }
+  .custom-table td.gig-title {
+    width: 40%;
+  }
+}
+
+#p-enter-bid, #p-add-gig {
+  font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+#gig-message, .bid-comments, .profile-description, textarea#id_body {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  word-break: normal;
+}
+
+#gig-message, .profile-description, textarea#id_body {
+  border-radius: 3px;
+  padding: 6px;
+  border: 1px solid #CCC;
+  font-size: 13px;
+  background-color: #F8F8F8;
+}
+
+.toggle-button {
+  width: 105px;
+  margin-right: 5px;
+}
+.toggle-comments {
+  display: none;
+}
+
+#search-button {
+  padding-bottom: 40px;
+}
+
+.linkedin-icon img {
+  height: 16px;
+  width: 16px;
+}
+
+
+/*** FOOTER ***/
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #000000;
+}
+
+.navbar-brand-centered {
+  position: absolute;
+  left: 0%;
+  width: 100%;
+  display: block;
+  text-align: center;
+}
+
+
+/*** LANDING PAGE ***/
+.break {
+  clear: both;
+}
+
+.lp-div {
+  overflow-x: hidden;
+}
+
+.lp-heading {
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 24px;
+  padding: 15px;
+}
+
+.lp-subhead {
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 15px;
+}
+.lp-subhead-inverted {
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  background-color: black;
+  color: white;
+  padding: 20px;
+}
+
+.lp-body {
+  background-color: transparent;
+  padding: 20px;
+}
+.lp-body-inverted {
+  background-color: black;
+  color: white;
+  padding: 20px;
+}
+
+#toolbar .wrapper {
+  text-align: center;
+}
+
+.bordered-list-div, .bordered-div-nopadding, .bordered-div-fullpads, .plan-sub-div  {
+  border: 1px solid black;
+  background-color: white;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  display: table;
+}
+.bordered-list-div {
+  padding: 20px 30px 20px 0px;
+}
+.bordered-div-fullpads, .plan-sub-div {
+  padding: 20px 30px;
+  border-width: 2px;
+}
+.question-mark-div {
+  float: left;
+  padding-right: 20px;
+  padding-left: 30px;
+  color: blue;
+  display: table-cell;
+}
+.question-div {
+  display: table-cell;
+  cursor: pointer;
+}
+.answer-div {
+  display: none;
+}
+.exclamation-mark-div {
+  float: left;
+  color: red;
+  padding-right: 10px;
+}
+.plan-sub-div {
+  display: block;
+}
+.plan-sub-div:hover {
+  background-color: #F7FFF9;
+}
+.sub-link:hover {
+  text-decoration: none;
+  color: red;
+}
+.basic {
+  color: blue;
+}
+.upgrade {
+  color: green;
+}
+
+/*** UPDATE PROFILE FIELDS ***/
+
+.field-label {
+  float: left;
+  margin-left: 6px;
+  padding-bottom: 4px;
+}
+.checkbox-fields > label {
+  margin-left: 3px;
+  width: 100%;
+  font-weight: normal;
+}
+input.checkboxes {
+  width: 20px;
+}
+
+/*** MAIL MENU ***/
+.mailmenu {
+  background-color: clear;
+  text-align: center;
+}
+
+.mailmenu ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mailmenu li {
+  font-weight: bold;
+  font-size: 13px;
+  padding: 8px 12px 8px 12px;
+  display: inline-block;
+}
+
+textarea#id_body {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+}

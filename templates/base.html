@@ -1,0 +1,46 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FltLogger</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}" />
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap-theme.css'%}">
+
+    <!-- Own Stylesheet Comes AFTER Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/starter-template.css' %}" />
+  </head>
+
+    <body>
+        {% include 'navbar.html' %}
+        <div class="container">
+
+            {% include 'tags/opening_div_lg.html' %}
+
+                {% block content %}
+                {% endblock %}
+
+            {% include 'tags/closing_div_tags.html' %}
+
+        </div>
+        {% include 'footer.html' %}
+
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+
+        <!-- jQuery library -->
+        <script src="{% static 'bootstrap/js/jquery.min.js' %}"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+
+    </body>
+</html>
+
