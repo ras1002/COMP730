@@ -1,42 +1,10 @@
-{% load staticfiles %}
+{% extends 'base.html' %}
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>PiggyBank</title>
-
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}" />
-
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap-theme.css'%}">
-
-	<link href="https://fonts.googleapis.com/css?family=Kavoon" rel="stylesheet" type='text/css'>
-	
-    <!-- Own Stylesheet Comes AFTER Bootstrap -->
-	<link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
-</head>
-
-
-<body>
-
-
-<header>
+{% block content %}
 	<h1> PiggyBank </h1>
 	<br>
 	<br>
 	<!--This location will probably need to be updated
 	<img src="COMP730/project/templates/4052pige.jpg" height="900" width="900" alt="logo PiggyBank"> 
 	-->
-</header>
-
-
-
-
-
-
-
-</body>
-</html>
+{% endblock %}
