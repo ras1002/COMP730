@@ -10,7 +10,7 @@
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
     <a class="dropdown-item" href="{% url 'fundTracker:deposit'%}">Deposit / Edit Fund</a><br>
-    <a class="dropdown-item" href="#">My Fund Tracker</a>
+    <a class="dropdown-item" href="{% url 'fundTracker:trackFund'%}">My Fund Tracker</a>
   </div>
   
 </div>
@@ -20,7 +20,7 @@
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
     <a class="dropdown-item" href="#">Add / Edit Transaction</a>
-    <a class="dropdown-item" href="#">History</a>
+    <a class="dropdown-item" href="{% url 'fundTracker:history'%}">History</a>
   </div>
   
 </div>
