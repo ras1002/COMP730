@@ -18,6 +18,9 @@ from django.contrib import admin
 from . import views
 
 urlpatterns = [
+	url(r'piggybank/',views.piggybank, name="piggybank"),
+	url(r'piggybankFundAccount/', views.piggybankFundAccount, name="piggybankFundAccount"),
+	url(r'fundTracker/', include('fundTracker.urls', namespace="fundTracker")),
 	url(r'^$', views.home, name="home"),
 	url(r'^accounts/', include('allauth.urls',)),
 	url(r'^goalTracker/', include('goalTracker.urls')),
