@@ -31,7 +31,20 @@ class Transaction(models.Model):
     def __str__(self):
         return "{}: {}".format(self.fund.owner, self.amount)
 
+    def can_process(self):
+        '''
+        Returns true if there is more money in the fund than the amount of the transaction
+        '''
+        return self.fund.balance > self.amount
+
     def process(self):
-        f = self.fund
-        f.balance -= amount
-        f.save()
+        '''
+        Processes the transaction, actually deducts the money from the fund
+        '''
+        if self.can_process():
+            f = self.fund
+            f.balance -= self.amount
+            f.save()
+            return True
+        else:
+            return False;

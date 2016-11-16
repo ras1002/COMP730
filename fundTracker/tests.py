@@ -48,15 +48,35 @@ class TransactionMethodTests(TestCase):
             fund=f,
         )
 
-    def test_process_method(self):
+    def test_can_process(self):
+        '''
+        Verify that can_process() returns True if fund balance > transaction amount
+        Which ensures that there is enough money in the fund to cover the transaction
+        '''
+        u = User.objects.get(username="test_user")
+        f = Fund.objects.get(owner=u)
+        t = Transaction(amount=10, category="test", fund=f)
+        self.assertGreater(t.amount, f.balance)
+        self.assertFalse(t.can_process())
+        f.balance = 100
+        self.assertLess(t.amount, f.balance)
+        self.assertTrue(t.can_process())
+
+    def test_process(self):
+        '''
+        Verify transaction process() method deducts money from fund
+        '''
         u = User.objects.get(username="test_user")
         f = Fund.objects.get(owner=u)
         t = Transaction(amount=5, category="test_trans", fund=f)
+        self.assertGreater(t.amount, f.balance)
+        self.assertFalse(t.process())
         f.balance = 10
         f.save()
         self.assertEqual(f.balance, 10)
-        
-        
+        self.assertEqual(t.amount, 5)
+        t.process()
+        self.assertEqual(f.balance, 5)        
 
 
 
