@@ -16,7 +16,7 @@
             <ul class="nav navbar-nav">
 
                 <li {% if request.path == index %} class="active" {% endif %}><a href="{% url 'home' %}"><span class="glyphicon glyphicon-home"></span><span class="hidden-md hidden-sm"> Home</span></a></li>
-				<li><a href=""><span class="glyphicon glyphicon-book"></span><span class="hidden-md hidden-sm">Your PiggyBank</span></a></li>
+				<li><a href="{% url 'piggybank' %}"><span class="glyphicon glyphicon-book"></span><span class="hidden-md hidden-sm">Your PiggyBank</span></a></li>
 			</ul>
             <ul class="nav navbar-nav navbar-right">
 				{% if user.is_staff %}

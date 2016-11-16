@@ -1,0 +1,38 @@
+{% extends 'base.html'%}
+
+{% block content %}
+	<legend>piggybankFundAccount.html</legend>
+
+	
+	<div class="dropdown open">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Fund Account
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="{% url 'fundTracker:deposit'%}">Deposit / Edit Fund</a><br>
+    <a class="dropdown-item" href="#">My Fund Tracker</a>
+  </div>
+  
+</div>
+	<div class="dropdown open">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    My Transactions
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">Add / Edit Transaction</a>
+    <a class="dropdown-item" href="#">History</a>
+  </div>
+  
+</div>
+<div class="dropdown open">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    My Goals
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">Add/Edit Goals</a>
+    <a class="dropdown-item" href="#">View Goals</a>
+  </div>
+  
+</div>
+ {% endblock %}
+ 
