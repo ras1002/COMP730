@@ -30,3 +30,8 @@ class Transaction(models.Model):
 
     def __str__(self):
         return "{}: {}".format(self.fund.owner, self.amount)
+
+    def process(self):
+        f = self.fund
+        f.balance -= amount
+        f.save()
