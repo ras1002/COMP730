@@ -1,5 +1,43 @@
 {% extends 'base.html'%}
 {% block content %}
-<legend> history.html </legend>
+<legend> Your Transactions </legend>
+
+
+		<div class="container-fluid">
+		  
+		  <table class="table table-hover">
+			<thead>
+				<tr>
+					<th>Username</th>
+					<th>Transaction</th>
+					<th>Amount</th>
+					<th>Date</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Mary</td>
+					<td>Chocolate</td>
+					<td>5.00</td>
+					<td>11/12/2016</td>
+				</tr>
+				<tr>
+					<td>Mary</td>
+					<td>Gas</td>
+					<td>22.54</td>
+					<td>11/01/2016</td>
+				</tr>
+				<tr>
+					<td>Mary</td>
+					<td>Movie</td>
+					<td>11.50</td>
+					<td>10/22/2016</td>
+				</tr>
+			</tbody>
+		  </table>
+		</div>
+	
+	
+
 
 {% endblock %}

@@ -10,11 +10,17 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}" />
 
-	<!-- Optional theme -->
+	 <!--Optional theme -->
 	<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap-theme.css'%}">
+	
+	<link href="https://fonts.googleapis.com/css?family=Kavoon" rel="stylesheet" type='text/css'>
 
     <!-- Own Stylesheet Comes AFTER Bootstrap -->
     <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/starter-template.css' %}" />
+	
+	
+	<link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/index.css' %}">
+	
   </head>
 
     <body>
@@ -24,6 +30,12 @@
             {% include 'tags/opening_div_lg.html' %}
 
                 {% block content %}
+				<p>
+					Got your eye on an awesome video game? Want to see that great new movie everyone is talking about? <br><br> 
+					If you have hard time saving your money or just want to keep track of where it all goes, 
+					PiggyBank can help. You can use it to record your savings, set goals and monitor your progress toward each goal, 
+					and see what you've already bought. 
+				</p>
                 {% endblock %}
 
             {% include 'tags/closing_div_tags.html' %}
