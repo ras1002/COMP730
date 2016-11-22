@@ -27,3 +27,21 @@ def add_goal(request):
         form = GoalForm(user=request.user)
     context = {'form':form}
     return render(request, "goalTracker/add_goal.html", context)
+
+@login_required
+def edit_goal(request, goal_id):
+    goal = Goal.objects.get(id=goal_id)
+    if request.method == "POST":
+        form = GoalForm(request.POST, instance=goal)
+        if('delete' in request.POST):
+            goal.delete()
+            return HttpResponseRedirect(reverse("goalTracker:goals"))
+        if form.is_valid():
+            goal = form.save(commit=False)
+            goal.owner = request.user
+            goal.save()
+            return HttpResponseRedirect(reverse("goalTracker:goals"))
+    else:
+        form = GoalForm(instance=goal, user=request.user)
+    context= {'form':form}
+    return render(request, "goalTracker/edit_goal.html", context)
