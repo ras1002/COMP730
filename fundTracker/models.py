@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from decimal import *
 
 # Create your models here.
 
@@ -15,6 +16,7 @@ class Fund(models.Model):
         Returns false if amount <= 0
         else Adds amount to balance, saves object to DB, returns True
         '''
+        amount = Decimal(amount)
         if amount <= 0:
             return False
         else:

@@ -19,9 +19,9 @@ from . import views
 
 urlpatterns = [
 	url(r'piggybank/',views.piggybank, name="piggybank"),
-	url(r'fundTracker', include('fundTracker.urls', namespace="fundTracker")),
+	url(r'fundTracker/', include('fundTracker.urls', namespace="fundTracker")),
 	url(r'^$', views.home, name="home"),
 	url(r'^accounts/', include('allauth.urls',)),
-	url(r'^goalTracker/', include('goalTracker.urls')),
+	url(r'^goalTracker/', include('goalTracker.urls', namespace="goalTracker")),
     url(r'^admin/', admin.site.urls),
 ]

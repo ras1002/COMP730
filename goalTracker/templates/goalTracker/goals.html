@@ -2,62 +2,41 @@
 
 {% block content %}
 
-	{% if goalList %}
 	
 	<legend><h2>My Goals</h2></legend>
 
 
 <div class="container-fluid">
 	
+    {% if goal_list %}
+        <table class="table table-hover">
+            {% for goal in goal_list %}
+    	        <tr>
+			        <td>{{goal.title}}</td>
+			        <td>
+				        <div class="progress">
+					        <div class="progress-bar progress-bar-striped" role="progressbar"
+						aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width:{{ goal.get_percent_complete }}%">
+						{{ goal.get_percent_complete }}%
+					        </div>
+				        </div>
+			        </td>
+                    <td>
+                        {{ goal.current_saved }} / {{goal.goal_amount}}
+                    </td>
+		        </tr>        
+            {% endfor %}
+        </table>
+    {% else %}
+        You have no goals!
+    {% endif %}
+    
+    
+	
+    <div>
+	    <button type="button" class="btn btn-info"><a href="{% url 'goalTracker:add_goal' %}">Add New Goal</a></button>
+    </div>
 
-	<table class="table table-hover">
-		<tr>
-			<td>Goal 1</td>
-			<td>
-				<div class="progress">
-					<div class="progress-bar progress-bar-striped" role="progressbar" 
-						aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
-						40%"
-					</div>
-				</div>
-			</td>
-			
-		</tr>
-		<tr>
-			<td>Goal 2</td>
-			<td>
-				<div class="progress">
-					<div class="progress-bar progress-bar-striped" role="progressbar" 
-						aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
-						40%"
-					</div>
-				</div>
-			</td>
-			
-		</tr>
-		<tr>
-			<td>Goal 3</td>
-			<td>
-				<div class="progress">
-					<div class="progress-bar progress-bar-striped" role="progressbar" 
-						aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
-						40%"
-					</div>
-				</div>
-			</td>
-			
-		</tr>
-		
-	</table>
-</div>
-<div>
-	<button type="button" class="btn btn-info">Ok</button>
-	<button type="button" class="btn btn-info">Back</button>
-</div>
-
-	{% else %}
-		you dont have goals
-	{% endif %}
 
 {% endblock %}
 

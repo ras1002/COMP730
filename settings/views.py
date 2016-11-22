@@ -5,6 +5,3 @@ def home(request):
 	
 def piggybank(request):
 	return render(request, 'piggybank.html', {})
-	
-def piggybankFundAccount(request):
-	return render(request, 'piggybankFundAccount.html', {})

@@ -42,3 +42,11 @@ class SignupForm(UserCreationForm):
         f.save()
         user.save()
         return user
+
+class DepositForm(forms.Form):
+    '''
+    Used to handle deposits to a user's account
+    '''
+    amount = forms.DecimalField(max_value=100, min_value=0, max_digits=5, decimal_places=2,required=True)
+    date = forms.DateField(required=True)
+    comment = forms.CharField(max_length=255, required=True)
