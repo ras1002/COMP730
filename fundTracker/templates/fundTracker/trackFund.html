@@ -1,5 +1,13 @@
 {% extends 'base.html'%}
 {% block content %}
-<legend> trackFund.html </legend>
+<legend> Your Transaction History </legend>
+
+    {% if transaction_list %}
+        {% for trans in transaction_list %}
+            {{ trans.date }} - {{trans.amount}} - {{trans.category}} 
+        {% endfor %}
+    {% else %}
+        Oh snap! You don't have any transactions!
+    {% endif %}
 
 {% endblock %}
