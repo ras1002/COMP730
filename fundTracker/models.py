@@ -31,7 +31,7 @@ class Transaction(models.Model):
     fund = models.ForeignKey(Fund)
 
     def __str__(self):
-        return "{}: {}".format(self.fund.owner, self.amount)
+        return "{}".format(self.amount)
 
     def can_process(self):
         '''
@@ -43,9 +43,10 @@ class Transaction(models.Model):
         '''
         Processes the transaction, actually deducts the money from the fund
         '''
+        tmp_amount = Decimal(self.amount)
         if self.can_process():
             f = self.fund
-            f.balance -= self.amount
+            f.balance -= tmp_amount
             f.save()
             return True
         else:
