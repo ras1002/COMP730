@@ -8,6 +8,10 @@ from .models import Fund, Transaction
 class FundMethodTests(TestCase):
 
     def setUp(self):
+        '''
+		Creates a temporary 'test database' that will be used for the rest
+		of these tests
+        '''
         User.objects.create_user("test_user", password="bar")
         u = User.objects.get(username="test_user")
         f = Fund(
@@ -29,6 +33,7 @@ class FundMethodTests(TestCase):
         f = Fund.objects.get(owner=u)
         x = f.balance
         self.assertFalse(f.deposit(-10))
+        self.assertFalse(f.deposit(0))
         self.assertEqual(x, f.balance)
         self.assertTrue(f.deposit(10))
         self.assertLess(x, f.balance)
