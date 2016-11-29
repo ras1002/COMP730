@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+from fundTracker.models import Fund, Transaction
+import time
 # Create your models here.
 
 class Goal(models.Model):
@@ -20,16 +21,21 @@ class Goal(models.Model):
         '''
         return self.current_saved > self.goal_amount
 
-    def add_savings(self, amount):
+    def add_savings(self, user, amount):
         '''
         Adds amount to goals current saved
         Returns false if amount is negative
         '''
+        fund = Fund.objects.get(owner=user)
+        trans = Transaction(amount=amount, date=time.gmtime(), category="Goal Deposit", fund=fund)
         if amount < 0:
             return False
         else:
-            self.current_saved += amount
-            self.save()
+            if trans.can_process():
+                self.current_saved += amount
+                self.save()
+            else:
+                return False
         return True
 
     def get_percent_complete(self):

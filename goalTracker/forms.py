@@ -10,3 +10,4 @@ class GoalForm(ModelForm):
         self.user = kwargs.pop('user', None)
         super(GoalForm, self).__init__(*args, **kwargs)
 
+        

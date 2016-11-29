@@ -5,6 +5,9 @@ from django.core.urlresolvers import reverse
 from .models import Goal
 from .forms import GoalForm
 
+import time
+import decimal
+
 # Create your views here.
 
 @login_required
@@ -45,3 +48,20 @@ def edit_goal(request, goal_id):
         form = GoalForm(instance=goal, user=request.user)
     context= {'form':form}
     return render(request, "goalTracker/edit_goal.html", context)
+
+@login_required
+def add_to_piggybank(request, goal_id):
+    context = {}
+    goal = Goal.objects.get(id=goal_id)
+    if request.method == "POST":
+        post_amount = decimal.Decimal(request.POST.get("amount"))
+        print("--------------------{}".format(post_amount))
+        result = goal.add_savings(request.user, post_amount)
+        if result:
+            goal.save()
+            return HttpResponseRedirect(reverse("goalTracker:goals"))
+        else:
+            context['error'] = True
+    context['goal'] = goal
+    return render(request, "goalTracker/add_to_piggybank.html", context)
+
