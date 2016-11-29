@@ -1,10 +1,10 @@
 {% extends 'base.html'%}
 {% block content %}
 <legend> Your Transaction History </legend>
-
+<h3>Your Balance {% if fund %} {{ fund.balance|floatformat:2 }} {% endif %} </h3>
     {% if transaction_list %}
         {% for trans in transaction_list %}
-            {{ trans.date }} - {{trans.amount}} - {{trans.category}} 
+            {{ trans.date }} - {{trans.amount}} - {{trans.category}}<br>
         {% endfor %}
     {% else %}
         Oh snap! You don't have any transactions!

@@ -1,8 +1,13 @@
 {% extends 'base.html'%}
 
 {% block content %}
-	<legend>Deposit Money to My Fund</legend>
-	
+    <legend>Your Balance: {% if fund %} {{fund.balance|floatformat:2}} {% endif %} 
+	<legend>Deposit Money</legend>
+    
+    {% if success %}
+        <h3>Money deposited successfully!</h3>
+    {% endif %}	
+
 	<div>
 	<form action="" method="post" class="horizontal">
         {% csrf_token %}
@@ -32,6 +37,5 @@
     </form>
     </div>
 	
-	<h3>You have successfully deposited money to your fund!</h3>
 
  {% endblock %}

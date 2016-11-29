@@ -7,35 +7,40 @@ from .models import Fund, Transaction
 
 @login_required
 def deposit(request):
+    context = {}
+    f = Fund.objects.get(owner=request.user)
     if request.method == 'POST':
         post_deposit = float(request.POST.get("deposit"))
-		# post_deposit = request.POST['deposit']
         post_date = request.POST.get("date")
         post_comment = request.POST.get("comment")
-        f = Fund.objects.get(owner=request.user)
         f.deposit(post_deposit)
-    return render(request,"fundTracker/deposit.html",{})
+        context['success'] = True
+    else:
+        context['success'] = False
+    context['fund'] = f
+    return render(request,"fundTracker/deposit.html",context)
 		
 @login_required
 def add_transaction(request):
+    context = {}
+    f = Fund.objects.get(owner=request.user)
     if request.method =='POST':
-        print (request.POST)
         post_amount = float(request.POST.get("amount"))
         post_date = request.POST.get("date")
         post_category = request.POST.get("category")
-        print (post_amount, post_date, post_category)
-        f = Fund.objects.get(owner=request.user)
-        print(f)
         t = Transaction(amount=post_amount, date=post_date, category=post_category, fund=f)
-        t.process()
-        t.save()
-    return render(request, 'fundTracker/add_transaction.html', {})
+        if t.process():
+            context['success'] = True
+            t.save()
+        else:
+            context['error'] = True
+    context['fund'] = f
+    return render(request, 'fundTracker/add_transaction.html', context)
 	
 @login_required
 def trackFund(request):
-    u = request.user
-    f = Fund.objects.get(owner=u)
-    t = f.transaction_set.all()
+    f = Fund.objects.get(owner=request.user)
+    t = f.transaction_set.all().order_by('-date')
     return render(request,"fundTracker/trackFund.html",{'fund':f, 'transaction_list':t})
 
 @login_required

@@ -1,7 +1,15 @@
 {% extends 'base.html'%}
 
 {% block content %}
-	<legend>hhhhhh</legend>
+	<legend>
+        Your Balance: {% if fund %} {{ fund.balance|floatformat:2 }} {% else %} error! {% endif %}<br> 
+        Add Transaction?
+    </legend>
+    {% if success %}
+         <h3>You have successfully deposited money to your fund!</h3>
+    {% elif error %}
+        <h3> Error! Perhaps your transaction amount was greater than your balance <h3>
+    {% endif %}
 	
 	<div>
 	<form action="" method="post" class="horizontal">
@@ -31,7 +39,5 @@
 
     </form>
     </div>
-	
-	<h3>You have successfully deposited money to your fund!</h3>
 
  {% endblock %}
