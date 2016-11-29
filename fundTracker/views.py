@@ -13,8 +13,8 @@ def deposit(request):
         post_deposit = float(request.POST.get("deposit"))
         post_date = request.POST.get("date")
         post_comment = request.POST.get("comment")
-        f.deposit(post_deposit)
-        context['success'] = True
+        if f.deposit(post_deposit):
+            context['success'] = True
     else:
         context['success'] = False
     context['fund'] = f

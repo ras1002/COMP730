@@ -31,6 +31,7 @@ class FundMethodTests(TestCase):
         '''
         u = User.objects.get(username="test_user")
         f = Fund.objects.get(owner=u)
+        self.assertEquals(f.balance, 0)
         x = f.balance
         self.assertFalse(f.deposit(-10))
         self.assertFalse(f.deposit(0))
