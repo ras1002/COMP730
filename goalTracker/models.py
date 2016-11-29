@@ -31,8 +31,9 @@ class Goal(models.Model):
         if amount < 0:
             return False
         else:
-            if trans.can_process():
+            if trans.process():
                 self.current_saved += amount
+                trans.save()
                 self.save()
             else:
                 return False

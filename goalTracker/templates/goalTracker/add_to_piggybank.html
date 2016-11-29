@@ -4,11 +4,14 @@
     <legend>
     Goal Amount: {{ goal.goal_amount }}<br>
     Current Saved: {{ goal.current_saved }}<br>
-	Deposit Money To This Goal?
+	Your Balance: {{ fund.balance }} <br>
+    Deposit Money To This Goal?
     </legend>
     
     {% if success %}
         <h3>Money deposited successfully!</h3>
+    {% elif error %}
+        <h3>Error! Perhaps you don't have enough funds?</h3>
     {% endif %}	
 
 	<div>

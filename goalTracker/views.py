@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from .models import Goal
 from .forms import GoalForm
+from fundTracker.models import Fund
 
 import time
 import decimal
@@ -53,9 +54,9 @@ def edit_goal(request, goal_id):
 def add_to_piggybank(request, goal_id):
     context = {}
     goal = Goal.objects.get(id=goal_id)
+    fund = Fund.objects.get(owner=request.user)
     if request.method == "POST":
         post_amount = decimal.Decimal(request.POST.get("amount"))
-        print("--------------------{}".format(post_amount))
         result = goal.add_savings(request.user, post_amount)
         if result:
             goal.save()
@@ -63,5 +64,6 @@ def add_to_piggybank(request, goal_id):
         else:
             context['error'] = True
     context['goal'] = goal
+    context['fund'] = fund
     return render(request, "goalTracker/add_to_piggybank.html", context)
 
