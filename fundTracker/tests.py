@@ -62,6 +62,7 @@ class TransactionMethodTests(TestCase):
         u = User.objects.get(username="test_user")
         f = Fund.objects.get(owner=u)
         t = Transaction(amount=10, category="test", fund=f)
+        self.assertIsInstance(t, Transaction)
         self.assertGreater(t.amount, f.balance)
         self.assertFalse(t.can_process())
         f.balance = 100
