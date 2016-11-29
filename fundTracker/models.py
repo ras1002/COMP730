@@ -37,7 +37,7 @@ class Transaction(models.Model):
         '''
         Returns true if there is more money in the fund than the amount of the transaction
         '''
-        return self.fund.balance > self.amount
+        return self.fund.balance > self.amount and self.amount > 0
 
     def process(self):
         '''
