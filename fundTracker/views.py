@@ -15,8 +15,8 @@ def deposit(request):
         post_comment = request.POST.get("comment")
         if f.deposit(post_deposit):
             context['success'] = True
-    else:
-        context['success'] = False
+        else:
+            context['error'] = True
     context['fund'] = f
     return render(request,"fundTracker/deposit.html",context)
 		
