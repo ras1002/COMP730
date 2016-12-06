@@ -2,6 +2,7 @@ from django.test import TestCase
 import unittest
 from django.contrib.auth.models import User
 from .models import Goal
+from fundTracker.models import Fund
 
 import decimal
 
@@ -12,6 +13,11 @@ class GoalMethodTests(TestCase):
     def setUp(self):
         User.objects.create_user("test_user", password="bar")
         u = User.objects.get(username="test_user")
+        f = Fund(
+            owner = u,
+        )
+        f.deposit(100)
+        f.save()
         Goal.objects.create(
             title = 'test goal',
             goal_amount = 999.99,
@@ -67,11 +73,10 @@ class GoalMethodTests(TestCase):
         add_savings() should return false if a negative x is passed
         in, otherwise it should increment the current_saved by x
         '''
+        u = User.objects.get(username="test_user")
         g = Goal.objects.get(title='test goal')
         x = g.current_saved #base case for current_saved
-        self.assertFalse(g.add_savings(-10))
-        #ensure current_saved was not changed when passing a negative value
+        self.assertFalse(g.add_savings(u.id,-10))
         self.assertEqual(x, g.current_saved)
-        self.assertTrue(g.add_savings(10))
-        #ensure current_saved was changed when passing a positive value
+        self.assertTrue(g.add_savings(u.id, 10))
         self.assertLess(x, g.current_saved)
