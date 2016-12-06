@@ -24,8 +24,14 @@ def deposit(request):
 def add_transaction(request):
     context = {}
     f = Fund.objects.get(owner=request.user)
+    context['fund'] = f
     if request.method =='POST':
-        post_amount = float(request.POST.get("amount"))
+        try:
+            post_amount = float(request.POST.get("amount"))
+        except ValueError:
+            print("ValueError with post value ", request.POST.get("amount"))
+            context['error'] = True
+            return render(request, 'fundTracker/add_transaction.html', context)
         post_date = request.POST.get("date")
         post_category = request.POST.get("category")
         t = Transaction(amount=post_amount, date=post_date, category=post_category, fund=f)
@@ -34,7 +40,6 @@ def add_transaction(request):
             t.save()
         else:
             context['error'] = True
-    context['fund'] = f
     return render(request, 'fundTracker/add_transaction.html', context)
 	
 @login_required
