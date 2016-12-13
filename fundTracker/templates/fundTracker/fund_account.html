@@ -1,10 +1,11 @@
 {% extends 'base.html'%}
 
 {% block content %}
-	<legend>piggybankFundAccount.html</legend>
+	<legend><h1>Your Funds<h1></legend>
+    
 
-  <button class="btn btn-secondary" type=button"><a href="{% url 'fundTracker:deposit' %}">Deposit/Edit Fund</a></button>
-  <button class="btn btn-secondary" type=button"><a href="{% url 'fundTracker:trackFund' %}">TrackFund</a></button>
+  <button class="btn btn-info" type=button"><a href="{% url 'fundTracker:deposit' %}">Deposit/Edit Funds</a></button>
+  <button class="btn btn-info" type=button"><a href="{% url 'fundTracker:trackFund' %}">View Funds</a></button>
 
 
 {% endblock %}

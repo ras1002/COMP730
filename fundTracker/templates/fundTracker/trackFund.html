@@ -1,7 +1,7 @@
 {% extends 'base.html'%}
 {% block content %}
-<legend> Your Transaction History </legend>
-<h3>Your Balance {% if fund %} {{ fund.balance|floatformat:2 }} {% endif %} </h3>
+<legend><h1>Your Transaction History<h1></legend>
+<h2>Your Current Balance: $ {% if fund %} {{ fund.balance|floatformat:2 }} {% endif %} </h2>
     {% if transaction_list %}
         {% for trans in transaction_list %}
             {{ trans.date }} - {{trans.amount}} - {{trans.category}}<br>

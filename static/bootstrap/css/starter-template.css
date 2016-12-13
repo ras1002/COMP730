@@ -40,17 +40,20 @@ body {
 -------------------------------------------------- */
 /* Not required for template or sticky footer method. */
 
-h1 {
-  font-family: "Abel", Arial, sans-serif;
-  font-weight: 400;
-  font-size: 40px;
-}
 
-h2 {
-  font-family: "Abel", Arial, sans-serif;
-  font-weight: bold;
-  font-size: 28px;
-}
+h1 { color: #ff80bf;
+			text-align: center;
+			font-family: 'Kavoon', cursive; 
+			font-size: 3em;
+			text-shadow: 2px 2px #000000
+			}
+
+h2 {color: #336699; 
+			text-align: center;
+			font-family: 'Kavoon', cursive;
+			line-height: 200%;
+			font-size: 1.50em;
+			}
 
 li {
   padding: 3px;

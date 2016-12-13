@@ -3,7 +3,7 @@
 {% block content %}
 
 	
-	<legend><h2>My Goals</h2></legend>
+	<legend><h1>My Goals</h1></legend>
 
 
 <div class="container-fluid">
@@ -25,7 +25,7 @@
                         {{ goal.current_saved }} / {{goal.goal_amount}}
                     </td>
                     <td>
-                        <button type="button" class="btn btn-info"><a href="{% url 'goalTracker:add_to_piggybank' goal.id %}">Add to Piggybank</a></button>
+                        <button type="button" class="btn btn-info"><a href="{% url 'goalTracker:add_to_piggybank' goal.id %}">Add to PiggyBank</a></button>
                     </td>
                     <td>
                         <button type="button" class="btn btn-info"><a href="{% url 'goalTracker:edit_goal' goal.id %}">Edit</a></button>
@@ -38,10 +38,11 @@
     {% endif %}
     
     
-	
+	<br>
     <div>
 	    <button type="button" class="btn btn-info"><a href="{% url 'goalTracker:add_goal' %}">Add New Goal</a></button>
     </div>
+    <br>
 
 
 {% endblock %}
